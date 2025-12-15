@@ -1,5 +1,5 @@
-#ifndef PTM_BINOMIALDISTRIBUTION_HPP_
-#define PTM_BINOMIALDISTRIBUTION_HPP_
+#ifndef PTM_MAXWELLDISTRIBUTION_HPP_
+#define PTM_MAXWELLISTRIBUTION_HPP_
 
 #include <random>
 
@@ -7,10 +7,10 @@
 
 namespace ptm {
 
-// Биномиальное Binomial(n, p)
-class BinomialDistribution : public Distribution {
+// Максвелла-Больцмана
+class MaxwellDistribution : public Distribution {
 public:
-  BinomialDistribution(long long n, double p);
+  MaxwellDistribution(double a);
 
   [[nodiscard]] double Pdf(double x) const override;
   [[nodiscard]] double Cdf(double x) const override;
@@ -20,10 +20,9 @@ public:
   [[nodiscard]] double TheoreticalVariance() const override;
 
 private:
-  long long n_;
-  double p_;
+  double a_;
 };
 
 } // namespace ptm
 
-#endif // PTM_BINOMIALDISTRIBUTION_HPP_
+#endif // PTM_MAXWELLDISTRIBUTION_HPP_
