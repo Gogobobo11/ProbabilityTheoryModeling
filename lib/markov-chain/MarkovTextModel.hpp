@@ -1,5 +1,4 @@
-#ifndef PTM_MARKOVTEXTMODEL_HPP_
-#define PTM_MARKOVTEXTMODEL_HPP_
+#pragma once
 
 #include <random>
 #include <string>
@@ -35,4 +34,3 @@ private:
 
 } // namespace ptm
 
-#endif // PTM_MARKOVTEXTMODEL_HPP_

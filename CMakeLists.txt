@@ -6,6 +6,7 @@ project(
         DESCRIPTION "C++ Project with Google tests"
         LANGUAGES CXX
 )
+set(CMAKE_CXX_STANDARD 26)
 
 include(cmake/SetCompilerOptions.cmake)
 include(cmake/IncludeExternalLibraries.cmake)
