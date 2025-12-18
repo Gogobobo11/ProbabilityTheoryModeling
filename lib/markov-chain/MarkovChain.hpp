@@ -7,6 +7,8 @@
 #include <unordered_map>
 #include <vector>
 
+#include "MatrixRepresentation.hpp"
+
 namespace ptm {
 
 class MarkovChain {
@@ -40,10 +42,9 @@ private:
   std::vector<State> index_to_state_;
 
   // counts_[i][j] = c_ij, row_sums_[i] = sum_j c_ij
-  std::vector<std::vector<size_t>> counts_;
-  std::vector<size_t> row_sums_;
+  MatrixRepresentation<size_t> counts_;
 
-  size_t ensureState(const State& s);
+  // size_t ensureState(const State& s);
 };
 
 } // namespace ptm

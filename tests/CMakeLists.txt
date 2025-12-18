@@ -14,12 +14,18 @@ target_link_libraries(
         ${PROJECT_NAME}_tests
         sigma-algebra
         law-of-large-numbers
+        markov-chain
         GTest::gtest_main
 )
 
 message(STATUS "Tests build type: ${CMAKE_BUILD_TYPE}")
+configure_file(${PROJECT_SOURCE_DIR}/tests/war_and_peace.txt ${CMAKE_BINARY_DIR}/tests/war_and_peace.txt COPYONLY)
 
-target_include_directories(${PROJECT_NAME}_tests PUBLIC ${PROJECT_SOURCE_DIR})
+target_include_directories(${PROJECT_NAME}_tests
+        PUBLIC
+        ${PROJECT_SOURCE_DIR}
+        ${CMAKE_BINARY_DIR}
+)
 
 include(GoogleTest)
 
