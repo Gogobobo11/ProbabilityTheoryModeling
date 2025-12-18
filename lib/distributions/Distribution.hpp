@@ -1,6 +1,8 @@
 #ifndef PTM_DISTRIBUTION_HPP_
 #define PTM_DISTRIBUTION_HPP_
 
+#include <cmath>
+#include <numbers>
 #include <random>
 
 namespace ptm {

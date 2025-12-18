@@ -1,5 +1,5 @@
-#ifndef PTM_BINOMIALDISTRIBUTION_HPP_
-#define PTM_BINOMIALDISTRIBUTION_HPP_
+#ifndef PTM_LOGISTICDISTRIBUTION_HPP_
+#define PTM_LOGISTICDISTRIBUTION_HPP_
 
 #include <random>
 
@@ -7,10 +7,10 @@
 
 namespace ptm {
 
-// Биномиальное Binomial(n, p)
-class BinomialDistribution : public Distribution {
+// 
+class LogisticDistribution : public Distribution {
 public:
-  BinomialDistribution(long long n, double p);
+  explicit LogisticDistribution(double mu, double s);
 
   [[nodiscard]] double Pdf(double x) const override;
   [[nodiscard]] double Cdf(double x) const override;
@@ -20,10 +20,10 @@ public:
   [[nodiscard]] double TheoreticalVariance() const override;
 
 private:
-  long long n_;
-  double p_;
+  double mu_;
+  double s_;
 };
 
 } // namespace ptm
 
-#endif // PTM_BINOMIALDISTRIBUTION_HPP_
+#endif // PTM_LOGISTICDISTRIBUTION_HPP_

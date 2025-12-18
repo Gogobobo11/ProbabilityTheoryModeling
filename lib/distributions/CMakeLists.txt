@@ -8,6 +8,8 @@ add_library(distributions STATIC
         BinomialDistribution.cpp
         GeometricDistribution.cpp
         PoissonDistribution.cpp
+        LogisticDistribution.cpp
+        MaxwellDistribution.cpp
         DistributionExperiment.cpp
         ../markov-chain/utility/SplitText.hpp
 )
