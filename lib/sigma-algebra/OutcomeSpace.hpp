@@ -17,6 +17,8 @@ public:
   [[nodiscard]] size_t GetSize() const noexcept;
   [[nodiscard]] const std::string& GetName(OutcomeId id) const;
 
+  bool operator==(const OutcomeSpace& other) const = default;
+
 private:
   std::vector<std::string> names_;
 };
