@@ -1,6 +1,7 @@
 #ifndef PTM_EVENT_HPP_
 #define PTM_EVENT_HPP_
 
+#include <cstddef>
 #include <vector>
 
 #include "OutcomeSpace.hpp"
