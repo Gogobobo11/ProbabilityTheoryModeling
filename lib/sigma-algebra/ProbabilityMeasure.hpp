@@ -20,6 +20,8 @@ public:
 
   [[nodiscard]] double Probability(const Event& event) const;
 
+  [[nodiscard]] const OutcomeSpace& GetOutcomeSpace() const;
+
 private:
   const OutcomeSpace& omega_;
   std::vector<double> atom_probs_;

@@ -4,7 +4,7 @@
 
 namespace ptm {
 
-ProbabilityMeasure::ProbabilityMeasure(const OutcomeSpace& omega) : omega_(omega) {
+ProbabilityMeasure::ProbabilityMeasure(const OutcomeSpace& omega) : omega_(omega), atom_probs_(omega.GetSize(), 0) {
 }
 
 void ProbabilityMeasure::SetAtomicProbability(OutcomeSpace::OutcomeId id, double p) {
@@ -48,6 +48,10 @@ double ProbabilityMeasure::Probability(const Event& events) const {
     }
   }
   return sum;
+}
+
+const OutcomeSpace& ProbabilityMeasure::GetOutcomeSpace() const {
+  return omega_;
 }
 
 } // namespace ptm
