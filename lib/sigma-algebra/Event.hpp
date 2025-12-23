@@ -24,6 +24,8 @@ public:
   static Event Unite(const Event& a, const Event& b);
   static Event Intersect(const Event& a, const Event& b);
 
+  auto operator<=>(const Event& other) const = default;
+
 private:
   std::vector<bool> mask_;
 };
