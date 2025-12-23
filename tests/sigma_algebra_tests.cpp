@@ -110,25 +110,25 @@ TEST(SigmaAlgebraTest, Validation) {
 }
 
 TEST(SigmaAlgebraTest, Generation) {
-    using namespace ptm;
-    OutcomeSpace omega;
-    omega.AddOutcome("1");
-    omega.AddOutcome("2");
-    omega.AddOutcome("3");
-    omega.AddOutcome("4");
+  using namespace ptm;
+  OutcomeSpace omega;
+  omega.AddOutcome("1");
+  omega.AddOutcome("2");
+  omega.AddOutcome("3");
+  omega.AddOutcome("4");
 
-    std::vector<bool> mA = {true, false, false, false};
-    std::vector<Event> gens;
-    gens.emplace_back(mA);
+  std::vector<bool> ma = {true, false, false, false};
+  std::vector<Event> gens;
+  gens.emplace_back(ma);
 
-    SigmaAlgebra sa = SigmaAlgebra::Generate(omega, gens);
-    EXPECT_TRUE(sa.IsSigmaAlgebra());
-    EXPECT_EQ(sa.GetEvents().size(), 4);
+  SigmaAlgebra sa = SigmaAlgebra::Generate(omega, gens);
+  EXPECT_TRUE(sa.IsSigmaAlgebra());
+  EXPECT_EQ(sa.GetEvents().size(), 4);
 
-    std::vector<bool> mB = {false, true, false, false};
-    gens.emplace_back(mB);
+  std::vector<bool> mb = {false, true, false, false};
+  gens.emplace_back(mb);
 
-    SigmaAlgebra sa2 = SigmaAlgebra::Generate(omega, gens);
-    EXPECT_TRUE(sa2.IsSigmaAlgebra());
-    EXPECT_EQ(sa2.GetEvents().size(), 8);
+  SigmaAlgebra sa2 = SigmaAlgebra::Generate(omega, gens);
+  EXPECT_TRUE(sa2.IsSigmaAlgebra());
+  EXPECT_EQ(sa2.GetEvents().size(), 8);
 }
