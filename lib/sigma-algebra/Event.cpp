@@ -64,7 +64,7 @@ Event Event::Intersect(const Event& a, const Event& b) {
   result.mask_.resize(a.mask_.size());
 
   for (std::size_t i = 0; i < a.mask_.size(); ++i) {
-    result.mask_[i] = a.Contains(i) || b.Contains(i);
+    result.mask_[i] = a.Contains(i) && b.Contains(i);
   }
 
   return result;
