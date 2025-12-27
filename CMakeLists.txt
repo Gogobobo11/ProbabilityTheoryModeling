@@ -7,13 +7,16 @@ project(
         LANGUAGES CXX
 )
 set(CMAKE_CXX_STANDARD 26)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address,undefined")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -pedantic")
 
 include(cmake/SetCompilerOptions.cmake)
 include(cmake/IncludeExternalLibraries.cmake)
 
 add_subdirectory(lib)
 add_subdirectory(bin)
-
 
 enable_testing()
 add_subdirectory(tests)

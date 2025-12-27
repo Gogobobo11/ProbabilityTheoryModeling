@@ -1,6 +1,6 @@
 #include <cstdint>
 
-int main(std::int32_t argc, char** argv) {
+int main() {
   // You can add anything you want here
   return 0;
 }
