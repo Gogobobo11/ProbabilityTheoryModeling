@@ -25,7 +25,7 @@ std::vector<std::string> MarkovTextModel::Tokenize(const std::string& text) cons
       return std::vector<std::string>{view.begin(), view.end()};
     }
     case TokenLevel::Word: {
-      return SplitWithFilter(text, "\n ", [](char c) { return isalpha(c); });
+      return SplitWithFilter(text, "\n ", [](unsigned char c) { return isalpha(c); });
     }
     default:
       throw std::invalid_argument("Invalid token level");
