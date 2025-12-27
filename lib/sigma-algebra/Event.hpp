@@ -1,6 +1,7 @@
 #ifndef PTM_EVENT_HPP_
 #define PTM_EVENT_HPP_
 
+#include <cstddef>
 #include <vector>
 
 #include "OutcomeSpace.hpp"
@@ -22,6 +23,8 @@ public:
   static Event Complement(const Event& e);
   static Event Unite(const Event& a, const Event& b);
   static Event Intersect(const Event& a, const Event& b);
+
+  auto operator<=>(const Event& other) const = default;
 
 private:
   std::vector<bool> mask_;
