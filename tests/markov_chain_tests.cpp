@@ -1,5 +1,6 @@
 #include <algorithm>
 #include <fstream>
+#include <filesystem>
 #include <gtest/gtest.h>
 
 #include "lib/markov-chain/MarkovChain.hpp"
