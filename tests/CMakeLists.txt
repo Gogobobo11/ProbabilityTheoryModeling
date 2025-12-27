@@ -19,8 +19,7 @@ target_link_libraries(
 )
 
 message(STATUS "Tests build type: ${CMAKE_BUILD_TYPE}")
-configure_file(${PROJECT_SOURCE_DIR}/tests/war_and_peace.txt ${CMAKE_BINARY_DIR}/tests/war_and_peace.txt COPYONLY)
-file(COPY ${PROJECT_SOURCE_DIR}/tests/war_and_peace.txt DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+configure_file(${CMAKE_CURRENT_SOURCE_DIR}/war_and_peace.txt ${CMAKE_CURRENT_BINARY_DIR}/war_and_peace.txt COPYONLY)
 
 target_include_directories(${PROJECT_NAME}_tests
         PUBLIC
