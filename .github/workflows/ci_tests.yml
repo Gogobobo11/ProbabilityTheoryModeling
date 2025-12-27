@@ -31,12 +31,12 @@ jobs:
         working-directory: .\cmake-build-release
         shell: bash
         run: |
-          ./cpp_tests.exe --help
+          ./cpp_tests.ex --help
       - name: Run tests
         working-directory: .\cmake-build-debug
         shell: bash
         run: |
-          ./cpp_tests_tests.exe
+          ./cpp_tests.exe
           # echo "Tests are not run on Windows MinGW due to issues with the test runner"
   build-matrix:
     name: Tests and application run on ${{ matrix.config.name }}
@@ -92,7 +92,7 @@ jobs:
         working-directory: ./cmake-build-release
         run: |
           if [ "$RUNNER_OS" == "Windows" ]; then
-            ./cpp_tests.exe --help
+            ./cpp_tests_tests.exe --help
           else 
             cd bin
             ./cpp_tests --help
