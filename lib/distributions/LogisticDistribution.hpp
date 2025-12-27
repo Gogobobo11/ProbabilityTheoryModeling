@@ -7,7 +7,7 @@
 
 namespace ptm {
 
-// 
+//
 class LogisticDistribution : public Distribution {
 public:
   explicit LogisticDistribution(double mu, double s);
