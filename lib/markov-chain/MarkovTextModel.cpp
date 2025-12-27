@@ -33,9 +33,11 @@ std::vector<std::string> MarkovTextModel::Tokenize(const std::string& text) cons
 }
 std::string MarkovTextModel::Detokenize(const std::vector<std::string>& tokens) const {
   std::string ans;
-  for (auto el : tokens) {
-    ans += el;
-    ans += ' ';
+  for (size_t i = 0; i < tokens.size(); ++i) {
+    ans += tokens[i];
+    if (level_ == TokenLevel::Word && i + 1 < tokens.size()) {
+      ans += ' ';
+    }
   }
   return ans;
 }
