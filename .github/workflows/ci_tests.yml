@@ -92,7 +92,7 @@ jobs:
         working-directory: ./cmake-build-release
         run: |
           if [ "$RUNNER_OS" == "Windows" ]; then
-            ./cpp_tests_tests.exe --help
+            ./cpp_tests.exe --help
           else 
             cd bin
             ./cpp_tests --help
