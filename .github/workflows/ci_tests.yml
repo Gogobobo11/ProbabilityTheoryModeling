@@ -31,7 +31,7 @@ jobs:
         working-directory: .\cmake-build-release
         shell: bash
         run: |
-          ./cpp_tests.ex --help
+          ./cpp_tests.exe --help
       - name: Run tests
         working-directory: .\cmake-build-debug
         shell: bash
