@@ -36,7 +36,7 @@ struct MatrixRepresentation {
 
   std::vector<size_t> GetKeys(size_t row) const {
     std::vector<size_t> keys;
-    for (auto it = values_[row].begin(); it != values_[row].end();++it) {
+    for (auto it = values_[row].begin(); it != values_[row].end(); ++it) {
       keys.push_back(it->first);
     }
     return keys;

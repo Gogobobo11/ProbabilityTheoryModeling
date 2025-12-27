@@ -64,7 +64,7 @@ std::optional<MarkovChain::State> MarkovChain::SampleNext(const State& current, 
 
   if (found != cum_sum.end()) {
     size_t next_idx = std::distance(cum_sum.begin(), found);
-    auto next_s_ind = counts_.GetKeys(i)[next_idx-1];
+    auto next_s_ind = counts_.GetKeys(i)[next_idx - 1];
     return index_to_state_[next_s_ind];
   }
   return std::nullopt;

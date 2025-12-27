@@ -13,7 +13,9 @@ std::string filtered(std::string_view text, std::function<bool(char)> is_good) {
   return result;
 }
 
-std::vector<std::string> SplitWithFilter(const std::string& str, std::string delimiters, std::function<bool(char)> is_good) {
+std::vector<std::string> SplitWithFilter(const std::string& str,
+                                         std::string delimiters,
+                                         std::function<bool(char)> is_good) {
   std::vector<std::string> tokens;
   size_t start = 0;
   size_t end = str.find_first_of(delimiters);
