@@ -11,7 +11,6 @@ add_library(distributions STATIC
         LogisticDistribution.cpp
         MaxwellDistribution.cpp
         DistributionExperiment.cpp
-        ../markov-chain/utility/SplitText.hpp
 )
 
 target_include_directories(distributions PUBLIC ${PROJECT_SOURCE_DIR}/lib)
