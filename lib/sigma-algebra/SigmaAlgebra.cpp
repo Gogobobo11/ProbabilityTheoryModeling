@@ -46,7 +46,6 @@ bool SigmaAlgebra::IsSigmaAlgebra() const {
 }
 
 SigmaAlgebra SigmaAlgebra::Generate(const OutcomeSpace& omega, const std::vector<Event>& generators) {
-
   std::set<Event> algebra;
 
   auto add = [&](const Event& e) { return algebra.insert(e).second; };

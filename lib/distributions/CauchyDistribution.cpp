@@ -32,4 +32,3 @@ double CauchyDistribution::TheoreticalMean() const {
 double CauchyDistribution::TheoreticalVariance() const {
   return std::nan("");
 }
-

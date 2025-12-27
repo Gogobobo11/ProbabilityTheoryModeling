@@ -39,4 +39,3 @@ private:
   std::vector<std::vector<T>> values_;
   std::vector<T> row_sums_;
 };
-

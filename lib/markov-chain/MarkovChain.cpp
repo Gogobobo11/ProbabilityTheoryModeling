@@ -74,4 +74,3 @@ std::vector<MarkovChain::State> MarkovChain::States() const {
 // }
 
 } // namespace ptm
-

@@ -52,4 +52,3 @@ double GeometricDistribution::TheoreticalMean() const {
 double GeometricDistribution::TheoreticalVariance() const {
   return (1.0 - p_) / (p_ * p_);
 }
-

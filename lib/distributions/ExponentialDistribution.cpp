@@ -26,4 +26,3 @@ double ExponentialDistribution::TheoreticalMean() const {
 double ExponentialDistribution::TheoreticalVariance() const {
   return 1.0 / (lambda_ * lambda_);
 }
-

@@ -48,4 +48,3 @@ double PoissonDistribution::TheoreticalMean() const {
 double PoissonDistribution::TheoreticalVariance() const {
   return lambda_;
 }
-

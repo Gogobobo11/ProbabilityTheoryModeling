@@ -68,4 +68,3 @@ double DistributionExperiment::KolmogorovDistance(const std::vector<double>& gri
 
   return std::ranges::max(distances);
 }
-

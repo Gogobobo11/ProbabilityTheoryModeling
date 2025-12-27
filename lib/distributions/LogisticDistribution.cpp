@@ -36,4 +36,3 @@ double LogisticDistribution::TheoreticalMean() const {
 double LogisticDistribution::TheoreticalVariance() const {
   return s_ * s_ * std::numbers::pi * std::numbers::pi / 3;
 }
-

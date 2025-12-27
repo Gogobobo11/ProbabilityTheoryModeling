@@ -43,4 +43,3 @@ double LaplaceDistribution::TheoreticalMean() const {
 double LaplaceDistribution::TheoreticalVariance() const {
   return 2 * b_ * b_;
 }
-

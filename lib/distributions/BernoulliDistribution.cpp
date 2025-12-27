@@ -42,4 +42,3 @@ double BernoulliDistribution::TheoreticalMean() const {
 double BernoulliDistribution::TheoreticalVariance() const {
   return p_ * (1 - p_);
 }
-

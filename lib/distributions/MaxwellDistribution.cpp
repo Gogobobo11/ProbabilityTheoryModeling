@@ -37,4 +37,3 @@ double MaxwellDistribution::TheoreticalMean() const {
 double MaxwellDistribution::TheoreticalVariance() const {
   return a_ * a_ * (3 * pi - 8) / pi;
 }
-

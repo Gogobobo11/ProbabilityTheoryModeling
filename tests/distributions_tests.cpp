@@ -295,4 +295,3 @@ TEST(DistributionExperimentTest, EmpiricalCdfAndKolmogorovDistance) {
   EXPECT_NEAR(experiment_exponential.KolmogorovDistance(grid, emp_cdf_exponential), 0, 0.01);
   EXPECT_NEAR(experiment_logistic.KolmogorovDistance(grid, emp_cdf_logistic), 0, 0.01);
 }
-
