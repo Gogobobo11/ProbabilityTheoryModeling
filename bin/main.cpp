@@ -1,6 +1,6 @@
 #include <fstream>
-#include <sstream>
 #include <iostream>
+#include <sstream>
 
 #include "../lib/markov-chain/MarkovTextModel.hpp"
 
