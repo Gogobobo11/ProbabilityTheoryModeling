@@ -23,13 +23,13 @@ std::unordered_map<MarkovChain::State, double> MarkovChain::NextDistribution(con
     return {};
   }
   size_t i = state_to_index_.at(from);
-  double row_sum = counts_.GetRowSum(i);
+  double row_sum = static_cast<double>(counts_.GetRowSum(i));
   if (row_sum == 0) {
     return {};
   }
   std::unordered_map<MarkovChain::State, double> ans = {};
   for (size_t j = 0; j < index_to_state_.size(); ++j) {
-    double count = counts_.GetAt(i, j);
+    double count = static_cast<double>(counts_.GetAt(i, j));
     if (count > 0) {
       ans[index_to_state_[j]] = count / row_sum;
     }
@@ -42,7 +42,7 @@ double MarkovChain::TransitionProbability(const State& from, const State& to) co
   }
   size_t i = state_to_index_.at(from);
   size_t j = state_to_index_.at(to);
-  double row_sum = counts_.GetRowSum(i);
+  double row_sum = static_cast<double>(counts_.GetRowSum(i));
   if (row_sum == 0) {
     return 0.0;
   }
