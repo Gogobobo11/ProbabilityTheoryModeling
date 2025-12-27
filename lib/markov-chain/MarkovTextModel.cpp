@@ -41,4 +41,3 @@ std::string MarkovTextModel::Detokenize(const std::vector<std::string>& tokens) 
 }
 
 } // namespace ptm
-
