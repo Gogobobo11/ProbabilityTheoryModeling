@@ -6,7 +6,7 @@ project(
         DESCRIPTION "C++ Project with Google tests"
         LANGUAGES CXX
 )
-set(CMAKE_CXX_STANDARD 26)
+set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address,undefined")

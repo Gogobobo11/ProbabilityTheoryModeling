@@ -1,17 +1,15 @@
 #pragma once
 #include <cstddef>
+#include <iostream>
+#include <map>
 #include <ostream>
 #include <vector>
 
 template<class T>
 struct MatrixRepresentation {
-  void OnAddition() {
-    size_t cur_size = values_.size();
-    values_.resize(cur_size + 1);
-    for (size_t i = 0; i <= cur_size; ++i) {
-      values_[i].resize(cur_size + 1);
-    }
-    row_sums_.resize(cur_size + 1);
+  void Resize(size_t new_size) {
+    values_.resize(new_size);
+    row_sums_.resize(new_size);
   }
   void AddAt(size_t i, size_t j, const T& value) {
     row_sums_[i] += value;
@@ -19,16 +17,29 @@ struct MatrixRepresentation {
   }
 
   T GetAt(size_t i, size_t j) const {
-    return values_[i][j];
+    if (values_[i].find(j) == values_[i].end()) {
+      return T(0);
+    }
+    return values_[i].at(j);
   }
 
   std::vector<T> CumulativeRowSum(size_t ind) const {
     std::vector<T> cumulativeRowSum;
     cumulativeRowSum.resize(values_[ind].size() + 1, T(0));
-    for (size_t j = 0; j < values_[ind].size(); ++j) {
-      cumulativeRowSum[j + 1] = cumulativeRowSum[j] + values_[ind][j];
+    size_t j = 0;
+    for (auto it = values_[ind].begin(); it != values_[ind].end(); ++it) {
+      cumulativeRowSum[j + 1] = cumulativeRowSum[j] + it->second;
+      j++;
     }
     return cumulativeRowSum;
+  }
+
+  std::vector<size_t> GetKeys(size_t row) const {
+    std::vector<size_t> keys;
+    for (auto it = values_[row].begin(); it != values_[row].end();++it) {
+      keys.push_back(it->first);
+    }
+    return keys;
   }
 
   T GetRowSum(size_t i) const {
@@ -36,6 +47,6 @@ struct MatrixRepresentation {
   }
 
 private:
-  std::vector<std::vector<T>> values_;
+  std::vector<std::map<size_t, T>> values_;
   std::vector<T> row_sums_;
 };

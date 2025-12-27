@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <cstddef>
-#include <sys/stat.h>
 
 namespace ptm {
 void MarkovChain::Train(const std::vector<State>& sequence) {
@@ -10,9 +9,9 @@ void MarkovChain::Train(const std::vector<State>& sequence) {
     if (!state_to_index_.contains(state)) {
       index_to_state_.emplace_back(state);
       state_to_index_[state] = index_to_state_.size() - 1;
-      counts_.OnAddition();
     }
   }
+  counts_.Resize(index_to_state_.size());
   for (size_t c = 0; c < sequence.size() - 1; c++) {
     size_t i = state_to_index_[sequence[c]];
     size_t j = state_to_index_[sequence[c + 1]];
@@ -65,7 +64,8 @@ std::optional<MarkovChain::State> MarkovChain::SampleNext(const State& current, 
 
   if (found != cum_sum.end()) {
     size_t next_idx = std::distance(cum_sum.begin(), found);
-    return index_to_state_[next_idx - 1];
+    auto next_s_ind = counts_.GetKeys(i)[next_idx-1];
+    return index_to_state_[next_s_ind];
   }
   return std::nullopt;
 }
@@ -86,8 +86,5 @@ std::vector<MarkovChain::State> MarkovChain::Generate(const State& start, size_t
 std::vector<MarkovChain::State> MarkovChain::States() const {
   return index_to_state_;
 }
-// size_t MarkovChain::ensureState(const State& s) {
-//   return
-// }
 
 } // namespace ptm
