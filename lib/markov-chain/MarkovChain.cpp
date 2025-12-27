@@ -1,6 +1,7 @@
 #include "MarkovChain.hpp"
 
 #include <algorithm>
+#include <cstddef>
 #include <sys/stat.h>
 
 namespace ptm {
@@ -12,16 +13,16 @@ void MarkovChain::Train(const std::vector<State>& sequence) {
       counts_.OnAddition();
     }
   }
-  for (int c = 0; c < sequence.size()-1; c++) {
+  for (size_t c = 0; c < sequence.size() - 1; c++) {
     size_t i = state_to_index_[sequence[c]];
-    size_t j = state_to_index_[sequence[c+1]];
+    size_t j = state_to_index_[sequence[c + 1]];
     counts_.AddAt(i, j, 1);
   }
 }
 std::unordered_map<MarkovChain::State, double> MarkovChain::NextDistribution(const State& from) const {
   size_t i = state_to_index_.at(from);
   std::unordered_map<MarkovChain::State, double> ans = {};
-  for (int j = 0; j < state_to_index_.size(); ++j) {
+  for (size_t j = 0; j < state_to_index_.size(); ++j) {
     State state = index_to_state_.at(j);
     ans[state] += counts_.GetAt(i, j) / counts_.GetRowSum(i);
   }
@@ -48,14 +49,14 @@ std::optional<MarkovChain::State> MarkovChain::SampleNext(const State& current, 
 
   if (found != cum_sum.end()) {
     size_t next_idx = std::distance(cum_sum.begin(), found);
-    return index_to_state_[next_idx-1];
+    return index_to_state_[next_idx - 1];
   }
   return std::nullopt;
 }
 std::vector<MarkovChain::State> MarkovChain::Generate(const State& start, size_t length, std::mt19937& rng) const {
   std::vector<State> sequence(length);
   State currentState = start;
-  for (int i = 1; i <= length; ++i) {
+  for (size_t i = 1; i <= length; ++i) {
     auto nextStateOpt = SampleNext(currentState, rng);
     if (!nextStateOpt) {
       break;
@@ -73,3 +74,4 @@ std::vector<MarkovChain::State> MarkovChain::States() const {
 // }
 
 } // namespace ptm
+

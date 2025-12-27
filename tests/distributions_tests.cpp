@@ -13,10 +13,10 @@
 #include "lib/distributions/DistributionExperiment.hpp"
 #include "lib/distributions/GeometricDistribution.hpp"
 #include "lib/distributions/LaplaceDistribution.hpp"
+#include "lib/distributions/LogisticDistribution.hpp"
 #include "lib/distributions/NormalDistribution.hpp"
 #include "lib/distributions/PoissonDistribution.hpp"
 #include "lib/distributions/UniformDistribution.hpp"
-#include "lib/distributions/LogisticDistribution.hpp"
 
 TEST(DistributionTest, NormalDistributionBasicProperties) {
   using namespace ptm;
@@ -295,3 +295,4 @@ TEST(DistributionExperimentTest, EmpiricalCdfAndKolmogorovDistance) {
   EXPECT_NEAR(experiment_exponential.KolmogorovDistance(grid, emp_cdf_exponential), 0, 0.01);
   EXPECT_NEAR(experiment_logistic.KolmogorovDistance(grid, emp_cdf_logistic), 0, 0.01);
 }
+

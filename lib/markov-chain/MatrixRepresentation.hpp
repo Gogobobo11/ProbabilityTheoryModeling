@@ -3,8 +3,7 @@
 #include <ostream>
 #include <vector>
 
-
-template <class T>
+template<class T>
 struct MatrixRepresentation {
   void OnAddition() {
     size_t cur_size = values_.size();
@@ -35,7 +34,9 @@ struct MatrixRepresentation {
   T GetRowSum(size_t i) const {
     return row_sums_[i];
   }
+
 private:
   std::vector<std::vector<T>> values_;
   std::vector<T> row_sums_;
 };
+
